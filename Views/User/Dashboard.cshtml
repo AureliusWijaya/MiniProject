@@ -1,0 +1,19 @@
+﻿<div class="content">
+    <h3 class="dashboard">Dashboard</h3>
+    <h4 class="logged">You are logged in!</h4>
+
+    <h1 class="Redir">Redirect in 5 Second</h1>
+</div>
+
+<script>
+    var timer = 5;
+    var interval = setInterval(function () {
+        timer--;
+        $('.Redir').text('Redirect in ' + timer + ' Second');
+        if (timer <= 0) {
+            clearInterval(interval);
+            window.location.href = "../Home/Index";
+        }
+    }, 1000);
+
+</script>

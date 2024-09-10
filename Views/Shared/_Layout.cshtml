@@ -1,0 +1,97 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WearHouse</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WearHouse.styles.css" asp-append-version="true" />
+    <!-- FONT -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap"
+          rel="stylesheet" />
+
+    <!-- STYLE -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+</head>
+<body>
+    <!--NAVBAR START-->
+    <!-- ================================== -->
+    <header>
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="Home">WearHouse</a>
+        <div class="left">
+            <nav class="navbar">
+                @if(!string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("name")))
+                {
+                    <a asp-area="" asp-controller="Category" asp-action="Index" class="Category">Category</a>
+                }
+                else
+                {
+                    <a  class="Category">Category</a>
+                }
+              
+                <a asp-area="" asp-controller="Home" asp-action="AboutUs" class="About Us" target="_self">About Us</a>
+            </nav>
+        </div>
+
+        <div class="right">
+            <nav class="navbar2">
+                @if(!string.IsNullOrEmpty(HttpContextAccessor.HttpContext.Session.GetString("name")))
+                {
+                    <p>Hello Mr/Mr.s @HttpContextAccessor.HttpContext.Session.GetString("name")</p>
+                    <a asp-area="" asp-controller="User" asp-action="Logout" class="Logout">Logout</a>
+
+                }
+                else
+                {
+                    <a asp-area="" asp-controller="User" asp-action="Login" class="Login">
+                        Login
+                    </a>
+                    <a asp-area="" asp-controller="User" asp-action="Register" class="Register">Register</a>
+                }
+               
+            </nav>
+        </div>
+
+        <div class="navbar-extra">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </header>
+    <!--NAVBAR END-->
+    <!-- ================================== -->
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- FOOTER START-- -->
+    <footer>
+        <div class="social">
+            <a href="#"><i data-feather="twitter"></i></a>
+            <a href="#"><i data-feather="instagram"></i></a>
+            <a href="#"><i data-feather="facebook"></i></a>
+
+
+            <div class="credit">
+                <p>Copyright &copy; Aurelius Alvin Wijaya. All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER END-- -->
+    <script>
+        feather.replace();
+    </script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

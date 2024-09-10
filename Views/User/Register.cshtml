@@ -1,0 +1,56 @@
+﻿
+<!-- REGISTER START -->
+<div class="wrapper">
+    <div class="form-box register">
+        <h3>Register</h3>
+        <form method="post">
+            <div class="input-box">
+                <label for="username" class="label-text">Name</label>
+                <input type="text" id="username" name="username" required />
+                <p class="error-msg" id="error_msg_register_name"></p>
+            </div>
+
+            <div class="input-box">
+                <label for="emailRegister" class="label-text">Email Address</label>
+                <input type="email"
+                       id="emailRegister"
+                       name="emailRegister"
+                       required />
+                <p class="error-msg" id="error_msg_register_email"></p>
+            </div>
+
+            <div class="input-box">
+                <label for="passwordRegister" class="label-text">Password</label>
+                <input type="password"
+                       id="passwordRegister"
+                       name="passwordRegister"
+                       required />
+                <p class="error-msg" id="error_msg_register_password"></p>
+            </div>
+
+            <div class="input-box">
+                <label for="ConfirmpasswordRegister" class="label-text">Confirm Password</label>
+                <input type="password"
+                       id="ConfirmpasswordRegister"
+                       name="ConfirmpasswordRegister"
+                       required />
+                <p class="error-msg" id="error_msg_register_acc"></p>
+            </div>
+
+            <div class="input-box">
+                <label class="checkbox">
+                    <input type="checkbox" name="agree" id="agree" />
+                </label>
+                <span class="tos-text">By clicking register, i agree to the terms and condition</span>
+            </div>
+            <p class="tos" id="error_msg_register_ToS"></p>
+
+            <button type="submit"
+                    onclick="validateFormRegister(event)"
+                    class="btnRegister">
+                Register
+            </button>
+        </form>
+    </div>
+</div>
+<!-- REGISTER END -->
